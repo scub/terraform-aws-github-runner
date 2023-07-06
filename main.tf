@@ -9,7 +9,7 @@ locals {
   }
 
   default_runner_labels = "self-hosted,${var.runner_os},${var.runner_architecture}"
-  runner_labels         = var.runner_extra_labels != "" ? "${local.default_runner_labels},${var.runner_extra_labels}" : local.default_runner_labels
+  runner_labels         = var.runner_extra_labels != "" ? "${var.runner_extra_labels}" : local.default_runner_labels
 
   ssm_root_path = var.ssm_paths.use_prefix ? "/${var.ssm_paths.root}/${var.prefix}" : "/${var.ssm_paths.root}"
 }
